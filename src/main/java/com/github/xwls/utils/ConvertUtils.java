@@ -20,8 +20,23 @@ public class ConvertUtils {
         }
     }
 
-    public static String hello(String s) {
-        return "hello " + s;
+    /**
+     * String 转换为 double
+     *
+     * @param s            字符串
+     * @param defaultValue 默认值
+     * @return 转换好的double，如果转换出现异常，会返回默认值
+     */
+    public static double parseDoubleDefault(String s, double defaultValue) {
+        if (s == null) {
+            return defaultValue;
+        }
+        try {
+            return Double.parseDouble(s);
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
     }
+
 
 }
